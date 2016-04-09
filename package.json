@@ -9,5 +9,14 @@
 	"homepage":    "https://github.com/derhuerst/keep-sequences-stream",
 	"repository":  "https://github.com/derhuerst/keep-sequences-stream.git",
 	"license":     "ISC",
-	"engine":      "node >= 4"
+	"engine":      "node >= 4",
+	"devDependencies": {
+		"stream-sink":   "^1.2",
+		"watchy":        "^0.6.6"
+	},
+	"scripts": {
+		"test":       "node test.js",
+		"test:watch": "watchy -s -w . node test.js",
+		"prepublish": "npm test"
+	}
 }
