@@ -11,22 +11,22 @@ module.exports = function (n, cmp) {
 	if ('function' !== typeof cmp) cmp = strictEqual
 
 	let queue  = []
+	let last   = NaN
 	let streak = 0
 
 	return through.obj(function (current, _, cb) {
-		const last = queue[queue.length - 1]
 
 		if (cmp(last, current)) {
 			streak++
 			if (streak > n) this.push(current)
 			else if (streak === n) {
-				for (let x of queue) this.push(x)
+				for (let i = 0; i < queue.length; i++) this.push(queue[i])
 				this.push(current)
 			} else queue.push(current)
-		} else {
-			queue  = [current]
-			streak = 1
-		}
+
+		} else { queue = [current]; streak = 1 }
+
+		last = current
 		cb()
 	})
 }
