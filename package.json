@@ -15,11 +15,13 @@
 	},
 	"devDependencies": {
 		"stream-sink":   "^1.2",
-		"watchy":        "^0.6.6"
+		"watchy":        "^0.6.6",
+		"benchmark":     "^2.1"
 	},
 	"scripts": {
 		"test":       "node test.js",
 		"test:watch": "watchy -s -w . node test.js",
-		"prepublish": "npm test"
+		"prepublish": "npm test",
+		"benchmark":  "node benchmark.js"
 	}
 }
