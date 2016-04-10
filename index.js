@@ -2,47 +2,30 @@
 
 const through = require('through2')
 
+const strictEqual = (a, b) => a === b
+
 module.exports = function (n, cmp) {
 	if ('number' !== typeof n) n = 3
 	if (n < 2) throw new Error('Length must be higher than 2.')
 	if (Math.floor(n) !== n) throw new Error('Length must be an integer.')
-	return 'function' === typeof cmp
-		? withComparator(n, cmp)
-		: withoutComparator(n)
-}
+	if ('function' !== typeof cmp) cmp = strictEqual
 
-
-
-const withoutComparator = (length) => {
-	let last = NaN // `NaN === NaN` is false
-	let count = 0
+	let queue  = []
+	let streak = 0
 
 	return through.obj(function (current, _, cb) {
-		if (last === current) {
-			if (++count === length)
-				while (count-- > 0) this.push(current)
-		} else {
-			count = 1
-			last = current
-		}
-		cb()
-	})
-}
+		const last = queue[queue.length - 1]
 
-const withComparator = (length, compare) => {
-	let last = NaN // `NaN === NaN` is false
-	let queue = []
-
-	return through.obj(function (current, _, cb) {
-		if (compare(last, current)) {
-			queue.push(current)
-			if (queue.length === length) {
+		if (cmp(last, current)) {
+			streak++
+			if (streak > n) this.push(current)
+			else if (streak === n) {
 				for (let x of queue) this.push(x)
-				queue = []
-			}
+				this.push(current)
+			} else queue.push(current)
 		} else {
-			queue = []
-			last = current
+			queue  = [current]
+			streak = 1
 		}
 		cb()
 	})
