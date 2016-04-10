@@ -1,7 +1,7 @@
 {
 	"name":        "keep-sequences-stream",
 	"description": "Pass through sequences with minimum length.",
-	"version":     "0.1.0",
+	"version":     "0.1.1",
 	"main":        "index.js",
 	"files":       ["index.js"],
 	"keywords":    ["stream", "debounce", "sequence", "minimum", "length", "filter"],
