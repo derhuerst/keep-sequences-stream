@@ -9,7 +9,7 @@
 	"homepage":    "https://github.com/derhuerst/keep-sequences-stream",
 	"repository":  "https://github.com/derhuerst/keep-sequences-stream.git",
 	"license":     "ISC",
-	"engine":      "node >= 4",
+	"engine":      "node >= 6",
 	"dependencies": {
 		"through2":      "^2.0.1"
 	},
