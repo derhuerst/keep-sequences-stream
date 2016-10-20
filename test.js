@@ -24,11 +24,12 @@ noop(([
 	const input = data[1]
 	const expected = data[2]
 
-	stream.pipe(sink({objectMode: true})).on('error', assert.fail)
-	.on('data', (actual) => {
+	stream.pipe(sink('object'))
+	.then((actual) => {
 		assert.deepStrictEqual(actual, expected)
 		console.info(input.join(' '), '->', expected.join(' '))
 	})
+	.catch(assert.fail)
 
 	for (let value of input) stream.write(value)
 	stream.end()
