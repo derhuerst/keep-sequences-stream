@@ -15,7 +15,7 @@
 	},
 	"devDependencies": {
 		"stream-sink":   "^2",
-		"watchy":        "^0.6.6",
+		"watchy":        "^0.7.0",
 		"benchmark":     "^2.1"
 	},
 	"scripts": {
