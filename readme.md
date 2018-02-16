@@ -10,9 +10,9 @@
 
 [![npm version](https://img.shields.io/npm/v/keep-sequences-stream.svg)](https://www.npmjs.com/package/keep-sequences-stream)
 [![build status](https://img.shields.io/travis/derhuerst/keep-sequences-stream.svg)](https://travis-ci.org/derhuerst/keep-sequences-stream)
-[![dependency status](https://img.shields.io/david/derhuerst/keep-sequences-stream.svg)](https://david-dm.org/derhuerst/keep-sequences-stream#info=dependencies)
-[![dev dependency status](https://img.shields.io/david/dev/derhuerst/keep-sequences-stream.svg)](https://david-dm.org/derhuerst/keep-sequences-stream#info=devDependencies)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/keep-sequences-stream.svg)
+[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
 
 
 ## Installing
